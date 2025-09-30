@@ -96,6 +96,10 @@
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
@@ -294,7 +298,7 @@
   <a href="https://arxiv.org/abs/2507.21541" target="_blank" rel="noopener noreferrer">
     Herman (2025)
   </a>.
-  <p>The performance of centroiding methods for sun sensing has plateaued due to limitations in spatial resolution, optical blur, and susceptibility to noise \cite{bao2022adaptive}. These constraints limit the achievable accuracy of sun sensors with conventional CMOS detectors. To address these challenges, we propose the use of event-based cameras for sun sensing. We introduce a dataset and associated benchmark, Sun-E, to facilitate further work in this field </p>
+  <p>The performance of centroiding methods for sun sensing has plateaued due to limitations in spatial resolution, optical blur, and susceptibility to noise. These constraints limit the achievable accuracy of sun sensors with conventional CMOS detectors. To address these challenges, we propose the use of event-based cameras for sun sensing. We introduce a dataset and associated benchmark, Sun-E, to facilitate further work in this field </p>
   </div>
 </section>
 
@@ -312,7 +316,7 @@
   <h2 class="title">What makes this dataset different??</h2>
   <p> Despite the growing interest in event-based vision for space applications, there exists a notable lack of publicly available datasets specifically tailored for sun sensing. This is a significant challenge to the development and evaluation of sun-sensing algorithms.</p>
     <p> </p>
-    <img src="./static/images/V2EvsExperimental-1.png
+    <img src="./static/images/V2EvsExperimental-1.png"
     class="center-image"
     alt="TODO: alt text"/>
   <p><b>Figure 2.</b> Sample Comparison between simulated event-based solar imagery generated using event simulator v2e and experimentally captured event-based data. The initial scene was captured outdoors and not in the laboratory set-up used to produce the Sun-E dataset. The cluster of events near the top of the Event Camera recording corresponds to a ghost optical artifact.</p>
@@ -459,7 +463,7 @@
       </div>
       <pre id="bibtex-code"><code>@article{YourPaperKey2024,
   title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
+  author={Sydney Dolan and Alessandro Golkar},
   journal={Conference/Journal Name},
   year={2024},
   url={https://your-domain.com/your-project-page}
