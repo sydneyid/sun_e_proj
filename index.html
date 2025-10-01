@@ -298,7 +298,7 @@
       </div>
 
       <!-- Right side: Text -->
-      <div style="flex: 1; text-align: right;">
+      <div style="flex: 1; text-align: left;">
         <p>
           The performance of centroiding methods for sun sensing has plateaued due to limitations
           in spatial resolution, optical blur, and susceptibility to noise. These constraints
@@ -312,13 +312,19 @@
 </section>
 
 
-
 <!--/ Backgroundn. -->
-<section class="section" id="Motivation">
+<section class="section" id="Eventcamera_Description">
   <div class="container is-max-desktop content">
   <h2 class="title">What are event cameras?</h2>
-  <p> Event cameras have a high dynamic range, which allows them to detect extremely bright and extremely dim objects. This makes them particularly well-suited for space environments, which often exhibit extreme lighting contrasts. This increased dynamic range can be attributed to the asynchronous functioning of event cameras. Each pixel in an event camera functions independently and generates an event when the logarithmic brightness intensity change exceeds a predefined threshold.</p>
-  </div>
+  <p> Event-based vision is an alternative framework within visual sensing that pulls inspiration from the human visual system’s capability to detect and respond to motion changes in the environment. the vision system receives visual input asynchronously and transports this input to the visual cortex for processing. Cells in the retinal, composed of photoreceptors, bipolar cells, and ganglion cells, work together to detect changes in light intensity and motion. This biological system has inspired the development of event cameras, which operate on a similar principle.</p>
+  <img src="./static/images/event_pixel_old_design.png"
+    class="center-image"
+    alt="Event pixel diagram. light hits the photoreceptor, which converts it to a voltage. voltage is carried to a change amplifier, which changes its intensity. Then the signal is carried to the comparatators, which convert input into events by comparing it against thresholds."/>  
+  <p><b>Figure 2.</b> Event cameras mimic the structure of retinal cells by using pixels that independently convert light into voltage signals, responding to changes in brightness detected at each pixel.</p>
+
+  <p>Events are read off a chip in the format <i>(t,x,y,p)</i> which includes the pixel's <i>xy</i> address on the pixel array, the polarity <i>(p)</i> of the change (ON or OFF) and a microsecond timestamp <i>(t)</i>. Together, the thousands of pixels in an event camera represent a dynamic view of the scene. The asynchronous update of each pixel occurs at an exceptionally high temporal resolution, enabling these cameras to adeptly capture fast-moving objects and dynamic scenes without the motion blur typically associated with frame cameras. Another key benefit of this class of camera is its ability to measure light intensity differences. Similar to the human eye, the event camera detects changes on a logarithmic scale, rather than with absolute values. This allows it to handle a wide range of lighting conditions effectively, avoiding common issues like overexposure or underexposure encountered with traditional frame camera systems. This adaptability is particularly valuable in environments with challenging lighting conditions, like space. 
+  </p>
+</div>
 </section>
 
 <!--/ Backgroundn. -->
@@ -330,7 +336,7 @@
     <img src="./static/images/V2EvsExperimental-1.png"
     class="center-image"
     alt="TODO: alt text"/>
-  <p><b>Figure 2.</b> Sample Comparison between simulated event-based solar imagery generated using event simulator v2e and experimentally captured event-based data. The initial scene was captured outdoors and not in the laboratory set-up used to produce the Sun-E dataset. The cluster of events near the top of the Event Camera recording corresponds to a ghost optical artifact.</p>
+  <p><b>Figure 3.</b> Sample Comparison between simulated event-based solar imagery generated using event simulator v2e and experimentally captured event-based data. The initial scene was captured outdoors and not in the laboratory set-up used to produce the Sun-E dataset. The cluster of events near the top of the Event Camera recording corresponds to a ghost optical artifact.</p>
   <p> As illustrated by a toy example in Figure 2, synthetic data diverges significantly from experimentally captured data. Synthetic event generators do not accurately model stray light artifacts within the scene.</p>
   <p>
   In this work, we address the broader gap in sun-sensing datasets by developing an experimental, high-fidelity dataset that captures realistic sunlight illumination and complex optical interactions. To this end, we introduce <strong>Sun-E</strong>, a novel dataset specifically designed for event-based sun sensing.
