@@ -319,13 +319,19 @@
   <p> Event-based vision is an alternative framework within visual sensing that pulls inspiration from the human visual system’s capability to detect and respond to motion changes in the environment. the vision system receives visual input asynchronously and transports this input to the visual cortex for processing. Cells in the retinal, composed of photoreceptors, bipolar cells, and ganglion cells, work together to detect changes in light intensity and motion. This biological system has inspired the development of event cameras, which operate on a similar principle.</p>
   <img src="./static/images/event_pixel_old_design.png"
     class="center-image"
-    alt="Event pixel diagram. light hits the photoreceptor, which converts it to a voltage. voltage is carried to a change amplifier, which changes its intensity. Then the signal is carried to the comparatators, which convert input into events by comparing it against thresholds."/>  
+    alt="Event pixel diagram. light hits the photoreceptor, which converts it to a voltage. voltage is carried to a change amplifier, which changes its intensity. Then the signal is carried to the comparatators, which convert input into events by comparing it against thresholds."
+    style="max-width: 80%; height: auto;"/>  
   <p><b>Figure 2.</b> Event cameras mimic the structure of retinal cells by using pixels that independently convert light into voltage signals, responding to changes in brightness detected at each pixel.</p>
 
-  <p>Events are read off a chip in the format <i>(t,x,y,p)</i> which includes the pixel's <i>xy</i> address on the pixel array, the polarity <i>(p)</i> of the change (ON or OFF) and a microsecond timestamp <i>(t)</i>. Together, the thousands of pixels in an event camera represent a dynamic view of the scene. The asynchronous update of each pixel occurs at an exceptionally high temporal resolution, enabling these cameras to adeptly capture fast-moving objects and dynamic scenes without the motion blur typically associated with frame cameras. Another key benefit of this class of camera is its ability to measure light intensity differences. Similar to the human eye, the event camera detects changes on a logarithmic scale, rather than with absolute values. This allows it to handle a wide range of lighting conditions effectively, avoiding common issues like overexposure or underexposure encountered with traditional frame camera systems. This adaptability is particularly valuable in environments with challenging lighting conditions, like space. 
+  <p>Events are read off a chip in the format <i>(t,x,y,p)</i> which includes the pixel's <i>xy</i> address on the pixel array, the polarity <i>(p)</i> of the change (ON or OFF) and a microsecond timestamp <i>(t)</i>. Together, the thousands of pixels in an event camera represent a dynamic view of the scene. The asynchronous update of each pixel occurs at an exceptionally high temporal resolution, enabling these cameras to adeptly capture fast-moving objects and dynamic scenes without the motion blur typically associated with frame cameras. Another key benefit of this class of camera is its ability to measure light intensity differences. Similar to the human eye, the event camera detects changes on a logarithmic scale, rather than with absolute values. This allows it to handle a wide range of lighting conditions effectively, avoiding common issues like overexposure or underexposure encountered with traditional frame camera systems. This adaptability is particularly valuable in environments with challenging lighting conditions like space. 
   </p>
+
 </div>
 </section>
+
+<!--/ TO DO - Add a video or something to show normal representation vs event represntation. -->
+
+
 
 <!--/ Backgroundn. -->
 <section class="section" id="Motivation">
@@ -335,29 +341,146 @@
     <p> </p>
     <img src="./static/images/V2EvsExperimental-1.png"
     class="center-image"
-    alt="TODO: alt text"/>
+    alt="TODO: alt text"
+    style="max-width: 80%; height: auto;"/>  
   <p><b>Figure 3.</b> Sample Comparison between simulated event-based solar imagery generated using event simulator v2e and experimentally captured event-based data. The initial scene was captured outdoors and not in the laboratory set-up used to produce the Sun-E dataset. The cluster of events near the top of the Event Camera recording corresponds to a ghost optical artifact.</p>
-  <p> As illustrated by a toy example in Figure 2, synthetic data diverges significantly from experimentally captured data. Synthetic event generators do not accurately model stray light artifacts within the scene.</p>
-  <p>
-  In this work, we address the broader gap in sun-sensing datasets by developing an experimental, high-fidelity dataset that captures realistic sunlight illumination and complex optical interactions. To this end, we introduce <strong>Sun-E</strong>, a novel dataset specifically designed for event-based sun sensing.
+  <p> As illustrated by Figure 3, synthetic data diverges significantly from experimentally captured data. Synthetic event generators do not accurately model stray light artifacts within the scene. In this work, we address the broader gap in sun-sensing datasets by developing an experimental, high-fidelity dataset that captures realistic sunlight illumination and complex optical interactions. 
 </p>
 
 <p>
-  The dataset consists of 9 scenes recorded with a fourth-generation event camera under varied sun angles, direction, and event sensor conditions. Each scene contains ground-truth metadata and auxiliary labels related to stray light analysis.
+  The dataset consists of 9 scenes recorded with a fourth-generation event camera under varied sun angles, direction, and event sensor conditions. Each scene contains ground-truth metadata and auxiliary labels related to stray light analysis. Details about each scene are shown in the table below.
 </p>
+<table border="1" cellspacing="0" cellpadding="6">
+  <caption>
+    <strong>Sequence description.</strong> T: total time in seconds, MER: Mean event rate (kiloevents/second).
+  </caption>
+  <thead>
+    <tr>
+      <th>Alignment</th>
+      <th>ID</th>
+      <th>T</th>
+      <th><em>f#</em></th>
+      <th>Ghosts</th>
+      <th>Flares</th>
+      <th>Direction</th>
+      <th>MER</th>
+      <th>Biases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Center -->
+    <tr>
+      <td rowspan="4">Center</td>
+      <td>1</td>
+      <td>60</td>
+      <td>5</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>Left</td>
+      <td>832.3</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>20</td>
+      <td>5</td>
+      <td>×</td>
+      <td>✓</td>
+      <td>Down</td>
+      <td>649.6</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>30</td>
+      <td>5</td>
+      <td>×</td>
+      <td>✓</td>
+      <td>Down</td>
+      <td>654.0</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>58</td>
+      <td>8</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>Right</td>
+      <td>1224.7</td>
+      <td>default</td>
+    </tr>
+
+    <!-- Upper -->
+    <tr>
+      <td rowspan="2">Upper</td>
+      <td>5</td>
+      <td>58</td>
+      <td>5</td>
+      <td>×</td>
+      <td>✓</td>
+      <td>Right</td>
+      <td>750.4</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>55</td>
+      <td>5</td>
+      <td>×</td>
+      <td>✓</td>
+      <td>Left</td>
+      <td>699.1</td>
+      <td>default</td>
+    </tr>
+
+    <!-- Lower -->
+    <tr>
+      <td rowspan="3">Lower</td>
+      <td>7</td>
+      <td>58</td>
+      <td>5</td>
+      <td>×</td>
+      <td>✓</td>
+      <td>Right</td>
+      <td>784.7</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>58</td>
+      <td>5</td>
+      <td>×</td>
+      <td>✓</td>
+      <td>Left</td>
+      <td>782.1</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>58</td>
+      <td>5</td>
+      <td>×</td>
+      <td>✓</td>
+      <td>Right</td>
+      <td>802.2</td>
+      <td>refractory</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>
-  In addition to the dataset, we provide a baseline methodology and evaluation protocol for event-based sun sensing. We summarize the key contributions of this paper as follows:
+  In addition to the dataset, we provide a baseline methodology and evaluation protocol for event-based sun sensing. 
 </p>
+</div>
+</section>
 
-<ul>
-  <li>
-    We present an experimental dataset of nine labeled scenes under varying conditions of orientation, motion direction, and bias parameters. Each scene is designed to highlight challenges related to sun sensing and stray light analysis for this application, providing a controlled yet diverse benchmark.
-  </li>
-  <li>
-    To support benchmarking and promote further research in event-based sun sensing, we implement a previously established sun sensing benchmark and introduce a new benchmark of our own. Both benchmarks, along with their evaluation tools, are open-sourced to enable reproducibility and community contribution.
-  </li>
-</ul>
+<!--/ Backgroundn. -->
+<section class="section" id="Benchmark">
+  <div class="container is-max-desktop content">
+  <h2 class="title">How does our benchmark work?</h2>
+  <p> Despite the growing interest in event-based vision for space applications, there exists a notable lack of publicly available datasets specifically tailored for sun sensing. This is a significant challenge to the development and evaluation of sun-sensing algorithms.</p>
+
 
   
   </div>
@@ -406,27 +529,6 @@
 <!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
 
 
 <!-- Video carousel -->
