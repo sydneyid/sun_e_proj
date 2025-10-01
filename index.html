@@ -191,9 +191,9 @@
             <div class="is-size-5 publication-authors">
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
-                <a href="sydneyidolan.com" target="_blank">Sydney Dolan</a><sup>*</sup>,</span>
+                <a href="https://sydneyidolan.com" target="_blank">Sydney Dolan</a>,</span>
                 <span class="author-block">
-                  <a href="https://www.professoren.tum.de/en/golkar-alessandro" target="_blank">Alessandro Golkar</a><sup>*</sup>,</span>
+                  <a href="https://www.professoren.tum.de/en/golkar-alessandro" target="_blank">Alessandro Golkar</a></span>
                   <span class="author-block">
         
                   </span>
@@ -206,7 +206,7 @@
                   </div>
 
                   <div class="column has-text-centered">
-                    <div class="publication-links">
+                    <div class="link-block">
                          <!-- TODO: Update with your arXiv paper ID -->
                       <a href="https://sydneyid.github.io/sun_e_proj/static/pdfs/Sun_E_Preprint.pdf" target="_blank"
                        class="external-link button is-normal is-rounded is-dark">
@@ -247,23 +247,6 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -283,24 +266,46 @@
 <!-- End paper abstract -->
 
   <!--/ Motivation. -->
+<!--/ Motivation. -->
 <section class="section" id="Background">
   <div class="container is-max-desktop content">
     <h2 class="title">Motivation</h2>
-  <p> Attitude sensors determine a spacecraft's orientation by sensing astronomical objects. Among attitude sensors, sun sensors are the most widely used due to their simplicity, low-power requirements, and the Sun's consistent visibility in space. Sun sensors estimate the direction and position of the sun relative to the spacecraft. Their working principle is shown in Figure 1.</p>
-  <img src="./static/images/SunSensorDiagram-2-1.png"
-    class="center-image"
-    alt="TODO: alt text"/>
-  <p><b>Figure 1.</b>Ideal single-aperture sensor operating principle.
-  The two sun angles 
-  \( \alpha \) and \( \beta \) 
-  represent the relative sun angle.
-  Figure adapted from 
-  <a href="https://arxiv.org/abs/2507.21541" target="_blank" rel="noopener noreferrer">
-    Herman (2025)
-  </a>.
-  <p>The performance of centroiding methods for sun sensing has plateaued due to limitations in spatial resolution, optical blur, and susceptibility to noise. These constraints limit the achievable accuracy of sun sensors with conventional CMOS detectors. To address these challenges, we propose the use of event-based cameras for sun sensing. We introduce a dataset and associated benchmark, Sun-E, to facilitate further work in this field </p>
+    <p>
+      Attitude sensors determine a spacecraft's orientation by sensing astronomical objects.
+      Among attitude sensors, sun sensors are the most widely used due to their simplicity,
+      low-power requirements, and the Sun's consistent visibility in space. Sun sensors estimate
+      the direction and position of the sun relative to the spacecraft. Their working principle
+      is shown in Figure 1.
+    </p>
+
+    <!-- Flex container for image and caption -->
+    <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin: 1.5rem 0;">
+      <!-- Image on the left -->
+      <img src="./static/images/SunSensorDiagram-2-1.png"
+           alt="Diagram of sun sensor operating principle"
+           style="max-width: 300px; height: auto;" />
+
+      <!-- Figure caption on the right -->
+      <div>
+        <p><b>Figure 1.</b> Ideal single-aperture sensor operating principle.<br />
+          The two sun angles \( \alpha \) and \( \beta \) represent the relative sun angle.<br />
+          Figure adapted from
+          <a href="https://arxiv.org/abs/2507.21541" target="_blank" rel="noopener noreferrer">
+            Herman (2025)
+          </a>.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      The performance of centroiding methods for sun sensing has plateaued due to limitations in spatial resolution,
+      optical blur, and susceptibility to noise. These constraints limit the achievable accuracy of sun sensors with
+      conventional CMOS detectors. To address these challenges, we propose the use of event-based cameras for sun sensing.
+      We introduce a dataset and associated benchmark, Sun-E, to facilitate further work in this field.
+    </p>
   </div>
 </section>
+
 
 <!--/ Backgroundn. -->
 <section class="section" id="Motivation">
