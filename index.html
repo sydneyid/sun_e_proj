@@ -326,6 +326,24 @@
   <p>Events are read off a chip in the format <i>(t,x,y,p)</i> which includes the pixel's <i>xy</i> address on the pixel array, the polarity <i>(p)</i> of the change (ON or OFF) and a microsecond timestamp <i>(t)</i>. Together, the thousands of pixels in an event camera represent a dynamic view of the scene. The asynchronous update of each pixel occurs at an exceptionally high temporal resolution, enabling these cameras to adeptly capture fast-moving objects and dynamic scenes without the motion blur typically associated with frame cameras. Another key benefit of this class of camera is its ability to measure light intensity differences. Similar to the human eye, the event camera detects changes on a logarithmic scale, rather than with absolute values. This allows it to handle a wide range of lighting conditions effectively, avoiding common issues like overexposure or underexposure encountered with traditional frame camera systems. This adaptability is particularly valuable in environments with challenging lighting conditions like space. 
   </p>
 
+  <div style="display: flex; justify-content: center; gap: 20px; align-items: flex-start;">
+  <!-- First GIF -->
+  <div>
+    <img src="./static/images/normal_sc.gif" alt="Description of first GIF" style="max-width: 100%; height: auto;" />
+  </div>
+
+  <!-- Second GIF -->
+  <div>
+    <img src="./static/images/event_sc.gif" alt="Description of second GIF" style="max-width: 100%; height: auto;" />
+  </div>
+</div>
+
+<!-- Figure caption -->
+<p style="text-align: center; margin-top: 10px;">
+  <strong>Figure 3.</strong> Side-by-side comparison of frame camera capture of a satellite detumbling, and an event camera capture.
+</p>
+
+
 </div>
 </section>
 
@@ -343,8 +361,8 @@
     class="center-image"
     alt="TODO: alt text"
     style="max-width: 80%; height: auto;"/>  
-  <p><b>Figure 3.</b> Sample Comparison between simulated event-based solar imagery generated using event simulator v2e and experimentally captured event-based data. The initial scene was captured outdoors and not in the laboratory set-up used to produce the Sun-E dataset. The cluster of events near the top of the Event Camera recording corresponds to a ghost optical artifact.</p>
-  <p> As illustrated by Figure 3, synthetic data diverges significantly from experimentally captured data. Synthetic event generators do not accurately model stray light artifacts within the scene. In this work, we address the broader gap in sun-sensing datasets by developing an experimental, high-fidelity dataset that captures realistic sunlight illumination and complex optical interactions. 
+  <p><b>Figure 4.</b> Sample Comparison between simulated event-based solar imagery generated using event simulator v2e and experimentally captured event-based data. The initial scene was captured outdoors and not in the laboratory set-up used to produce the Sun-E dataset. The cluster of events near the top of the Event Camera recording corresponds to a ghost optical artifact.</p>
+  <p> As illustrated by Figure 4, synthetic data diverges significantly from experimentally captured data. Synthetic event generators do not accurately model stray light artifacts within the scene. In this work, we address the broader gap in sun-sensing datasets by developing an experimental, high-fidelity dataset that captures realistic sunlight illumination and complex optical interactions. 
 </p>
 
 <p>
@@ -352,7 +370,7 @@
 </p>
 <table border="1" cellspacing="0" cellpadding="6">
   <caption>
-    <strong>Sequence description.</strong> T: total time in seconds, MER: Mean event rate (kiloevents/second).
+    <strong> Table 1.</strong> Sequence descriptions. T: total time in seconds, MER: Mean event rate (kiloevents/second).
   </caption>
   <thead>
     <tr>
